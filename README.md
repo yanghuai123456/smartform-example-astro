@@ -1,4 +1,4 @@
-# SmartForm + Astro
+# Astro contact form — Formspree alternative with AI spam filtering
 
 Wire a contact form to [SmartForm AI](https://usesmartform.com) in an Astro site.
 
