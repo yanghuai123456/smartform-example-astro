@@ -1,0 +1,30 @@
+---
+// src/pages/index.astro — pure static form, zero client JS
+const formId = import.meta.env.PUBLIC_SMARTFORM_FORM_ID;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>SmartForm + Astro</title>
+  <style>
+    body { font: 16px/1.4 system-ui; max-width: 480px; margin: 40px auto; padding: 0 16px; }
+    form { display: grid; gap: 12px; }
+    input, textarea, button { font: inherit; padding: 8px 10px; }
+    textarea { min-height: 100px; }
+    button { background: #7c3aed; color: #fff; border: 0; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Contact us</h1>
+  <p>Submissions land in your SmartForm dashboard with AI spam filtering + intent classification.</p>
+  <form action={`https://api.usesmartform.com/api/v1/f/${formId}`} method="POST">
+    <input  name="name"    placeholder="Name"    required />
+    <input  name="email"   type="email" placeholder="Email" required />
+    <textarea name="message" placeholder="Message" required></textarea>
+    <input  type="text" name="_gotcha" tabindex="-1" autocomplete="off"
+            style="position:absolute;left:-9999px" aria-hidden="true" />
+    <button type="submit">Send</button>
+  </form>
+</body>
+</html>
